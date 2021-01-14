@@ -1,0 +1,9 @@
+{
+  "docs": {
+    "Installation": ["getting-started"],
+    "Main Concepts": ["rule"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}

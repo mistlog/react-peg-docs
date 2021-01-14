@@ -1,2 +1,11 @@
-# react-peg-docs
-Docs for react-peg
+# ReactPeg Docs
+
+Docs for react-peg.
+
+## Local Setup
+
+```bash
+> cd website
+> npm install
+> npm run start
+```

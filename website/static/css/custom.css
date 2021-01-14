@@ -1,0 +1,80 @@
+/* your custom css */
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
+
+.navigationSlider .slidingNav ul li a, .navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a{
+    font-size: 18px;
+}
+
+.navigationSlider .slidingNav ul li a:hover, .navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a{
+    color: #61dafb;
+}
+
+.headerTitle{
+    color: #61dafb;
+}
+
+.projectTitle{
+    color: #61dafb;
+}
+
+.projectTitle small{
+    font-weight: 200;
+}
+
+.homeContainer{
+    background-color: #282c34;
+    padding: 50px 0;
+}
+
+.projectIntro{
+    color: #ffffff;
+}
+
+.button{
+    color: #282c34;
+    font-size: 16px;
+    background-color:#61dafb; 
+    text-transform: none;
+}
+
+.button:hover{
+    color: #282c34;
+    background-color: #ffffff;
+    text-transform: none;
+}
+
+
+.docs-next.button{
+   display: none;
+}
+
+.docs-prev.button{
+   display: none;
+}
+
+a{
+    color: #36abc5;
+}
+a:hover{
+    color: #61dafb;
+    transition: color 0.2s ease-out;
+}
+
+.hljs{
+    background-color: #20232a;
+    border-radius: 5px;
+}
