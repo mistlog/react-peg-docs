@@ -24,7 +24,7 @@ You can install React Peg via [npm](https://www.npmjs.com/package/react-peg):
  > npm i react-peg
 ```
 
-or use template project: 
+or use template project: [react-peg-template](https://github.com/mistlog/react-peg-template)
 
 ```js
 npx degit mistlog/react-peg-template#main react-peg-template
