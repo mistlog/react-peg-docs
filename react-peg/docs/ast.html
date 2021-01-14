@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>AST Node · React Peg</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Like props, you can specify the return type of ```action``` method in this way:"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="AST Node · React Peg"/><meta property="og:type" content="website"/><meta property="og:url" content="https://mistlog.github.io/react-peg-docs/"/><meta property="og:description" content="Like props, you can specify the return type of ```action``` method in this way:"/><meta property="og:image" content="https://mistlog.github.io/react-peg-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://mistlog.github.io/react-peg-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/react-peg-docs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs2015.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/react-peg-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/react-peg-docs/css/main.css"/><script src="/react-peg-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/react-peg-docs/"><h2 class="headerTitle">React Peg</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/react-peg-docs/docs/getting-started" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">AST Node</h1></header><article><div><span><p>Like props, you can specify the return type of <code>action</code> method in this way:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { ReactPeg, ActionParam } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-peg"</span>;
+
+interface TextProps
+{
+    <span class="hljs-attr">foo</span>: string;
+    text: string;
+}
+
+interface TextNode
+{
+    <span class="hljs-attr">id</span>: number;
+    text: string;
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Text</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ReactPeg</span>.<span class="hljs-title">Rule</span>&lt;<span class="hljs-title">TextProps</span>, <span class="hljs-title">TextNode</span>&gt;</span>{
+
+    render()
+    {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">text</span>&gt;</span>{`ab${this.props.text}`}<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span></span>
+        );
+    }
+
+    action(param: ActionParam)
+    {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">text</span>: param.global.text()
+        };
+    }
+}
+
+<span class="hljs-keyword">const</span> parser = ReactPeg.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">foo</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"c"</span> /&gt;</span></span>);
+<span class="hljs-keyword">const</span> ast = parser.parse(<span class="hljs-string">`abc`</span>) <span class="hljs-keyword">as</span> TextNode;
+<span class="hljs-built_in">console</span>.log(ast);
+</code></pre>
+<p>and the result will be:</p>
+<pre><code class="hljs css language-javascript">{ 
+    <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, 
+    <span class="hljs-attr">text</span>: <span class="hljs-string">'abc'</span> 
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/react-peg-docs/" class="nav-home"></a><div><h5>More</h5><a href="https://github.com/mistlog/react-peg">GitHub</a></div></section><section class="copyright">Copyright © 2021 mistlog</section></footer></div></body></html>
